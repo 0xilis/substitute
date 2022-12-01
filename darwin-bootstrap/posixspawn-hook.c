@@ -143,7 +143,7 @@ static bool advance(char **strp, const char *template) {
 }
 
 static bool spawn_unrestrict(pid_t pid, bool should_resume, bool is_exec) {
-    const char *prog = "/Library/Substitute/Helpers/unrestrict";
+    const char *prog = "/var/jb/Library/Substitute/Helpers/unrestrict";
     char pid_s[32];
     sprintf(pid_s, "%ld", (long) pid);
     const char *should_resume_s = should_resume ? "1" : "0";
@@ -269,9 +269,9 @@ static int hook_posix_spawn_generic(__typeof__(posix_spawn) *old,
 
 
     static const char bl_dylib[] =
-        "/Library/Substitute/Helpers/bundle-loader.dylib";
+        "/var/jb/Library/Substitute/Helpers/bundle-loader.dylib";
     static const char psh_dylib[] =
-        "/Library/Substitute/Helpers/posixspawn-hook.dylib";
+        "var/jb/Library/Substitute/Helpers/posixspawn-hook.dylib";
 
     const char *bundleid = NULL;
 
@@ -308,7 +308,7 @@ static int hook_posix_spawn_generic(__typeof__(posix_spawn) *old,
          *   something up.
          * note: sshd is started with the wrapper, with argv[0] != path
          */
-        if (!strcmp(path, "/Library/Substitute/Helpers/substituted") ||
+        if (!strcmp(path, "/var/jb/Library/Substitute/Helpers/substituted") ||
             !strcmp(path, "/usr/sbin/notifyd") ||
             !strcmp(xbasename(argv[0] ?: ""), "sshd"))
             goto skip;
