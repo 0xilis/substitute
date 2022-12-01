@@ -205,8 +205,8 @@ static void compression(UIView *view, UILayoutPriority pri) {
 
 static const char *test_and_transform_id_dylib(const char *id_dylib) {
     const char *base = xbasename(id_dylib);
-    static const char dir1[] = "/Library/MobileSubstrate/DynamicLibraries/";
-    static const char dir2[] = "/Library/Substitute/DynamicLibraries/";
+    static const char dir1[] = "/var/jb/Library/MobileSubstrate/DynamicLibraries/";
+    static const char dir2[] = "/var/jb/Library/Substitute/DynamicLibraries/";
     if (!strncmp(id_dylib, dir1, sizeof(dir1) - 1) ||
         !strncmp(id_dylib, dir2, sizeof(dir2) - 1))
         return base;
