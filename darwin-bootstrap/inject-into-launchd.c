@@ -1,4 +1,4 @@
-/* This is an iOS executable, placed in /etc/rc.d, that injects
+/* This is an iOS executable, placed in /var/jb/etc/rc.d, that injects
  * posixspawn-hook.dylib into launchd (pid 1). */
 
 #define IB_LOG_NAME "iil"
@@ -67,7 +67,7 @@ int main(UNUSED int argc, char **argv) {
         ib_log("mach_port_allocate: %x", kr);
         return 0;
     }
-    const char *lib = "/Library/Substitute/Helpers/posixspawn-hook.dylib";
+    const char *lib = "/var/jb/Library/Substitute/Helpers/posixspawn-hook.dylib";
     struct shuttle shuttle = {
         .type = SUBSTITUTE_SHUTTLE_MACH_PORT,
         .u.mach.right_type = MACH_MSG_TYPE_MAKE_SEND,
