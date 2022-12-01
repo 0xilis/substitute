@@ -12,7 +12,7 @@
 	<key>Label</key>
 	<string>com.ex.substituted</string>
 	<key>Program</key>
-	<string>/Library/Substitute/Helpers/substituted</string>
+	<string>/var/jb/Library/Substitute/Helpers/substituted</string>
 	<key>EnvironmentVariables</key>
 	<dict>
 		<key>_MSSafeMode</key>
